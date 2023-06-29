@@ -1,0 +1,21 @@
+@import url("https://api.fontshare.com/v2/css?f[]=boska@400&display=swap");
+
+.container {
+  position: relative;
+  display: inline-block;
+  width: "400px";
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.img-text {
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  font-weight: bold;
+  font-family: "Boska", serif;
+}
