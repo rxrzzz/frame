@@ -1,4 +1,4 @@
-@import url("https://api.fontshare.com/v2/css?f[]=boska@400&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@500,300&f[]=cabinet-grotesk@500,300&f[]=chillax@500,300&f[]=gambarino@400&f[]=boska@500,400&f[]=aktura@400&f[]=pramukh-rounded@400,300&display=swap");
 
 .container {
   position: relative;
