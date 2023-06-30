@@ -1,11 +1,14 @@
 import { addImageToFrame, convertToCanvas } from "./utils";
 
-let [img1, img2, img3, img4] = [
+let [img1, img2, img3, img4, linkToImgInput, linkToImgButton] = [
   document.querySelector(".img-1"),
   document.querySelector(".img-2"),
   document.querySelector(".img-3"),
   document.querySelector(".img-4"),
+  document.querySelector(".link-img input"),
+  document.querySelector(".link-img-button"),
 ];
+
 let defaultImageSrc = "";
 function changeDefaultImage() {
   switch (this.id) {
@@ -39,8 +42,15 @@ function changeDefaultImage() {
   convertToCanvas();
 }
 
+function useImageFromLink() {
+  let link = linkToImgInput.value;
+  addImageToFrame(link);
+  convertToCanvas();
+}
+
 img1.addEventListener("click", changeDefaultImage);
 img2.addEventListener("click", changeDefaultImage);
 img3.addEventListener("click", changeDefaultImage);
 img4.addEventListener("click", changeDefaultImage);
+linkToImgButton.addEventListener("click", useImageFromLink);
 export { defaultImageSrc };

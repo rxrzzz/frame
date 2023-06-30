@@ -11,10 +11,10 @@ function convertToCanvas() {
 function addImageToFrame(src) {
   let image = new Image();
   image.src = src;
-  image.style.width = "100%";
+  // image.style.width = "100%";
   image.style.width = "1080px";
   image.style.height = "1080px";
-  image.style.objectFit = "cover";
+  image.style.objectFit = "contain";
   if (frame.firstElementChild) {
     if (frame.firstElementChild.tagName.toLowerCase() === "img") {
       frame.firstElementChild.src = src;
