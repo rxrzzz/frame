@@ -29,9 +29,6 @@ function uploadImage() {
   const imgURL = URL.createObjectURL(imgFile);
   let image = document.createElement("img");
   image.src = imgURL;
-  image.style.width = "100%";
-  image.style.width = "1080px";
-  image.style.height = "1080px";
   image.style.objectFit = "cover";
   frame.innerHTML = "";
   frame.append(image);

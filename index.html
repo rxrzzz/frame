@@ -36,9 +36,15 @@
           <input type="text" />
           <button class="link-img-button">Add</button>
         </div>
+        <div class="aspect-ratios">
+          <div class="one-one">1 / 1</div>
+          <div class="four-five">4 / 5</div>
+          <div class="nineone-one">1.91: 1</div>
+          <div class="sixteen-nine">16: 9</div>
+        </div>
         <div class="">
           <input type="file" accept="image/*" id="img-upload" />
-          <div id="img-div" class="container"></div>
+          <div id="img-div" class="frame"></div>
           <div id="content">
             <input type="text" id="text-input" />
             <button id="text-submit">Add Text</button>
@@ -75,11 +81,12 @@
             >
               Pramukh Rounded
             </option>
-            <!-- Add more font options as needed -->
+
           </select>
         </div>
       </div>
     </main>
+    <script src="aspectratio.js" type="module"></script>
     <script src="frame.js" type="module"></script>
     <script src="/pureimage.js" type="module"></script>
     <script src="/imagetype.js" type="module"></script>

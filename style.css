@@ -6,17 +6,23 @@ body {
   font-family: "General Sans";
   font-size: 10px;
 }
-.container {
+.frame {
   position: relative;
   display: inline-block;
-  width: "300px";
   overflow: hidden;
+  max-width: 1080px;
+  width: 95%;
+  max-height: 1080px;
 }
 
 .intro {
   text-align: center;
 }
 
+.aspect-ratios {
+  cursor: pointer;
+  padding: 2rem;
+}
 .intro h1 {
   font-size: 4rem;
   margin-bottom: 0px;
@@ -88,6 +94,6 @@ body {
   margin-block-start: 1rem;
 }
 
-.chosen-img{
-  outline: .3rem solid blue;
+.chosen-img {
+  outline: 0.3rem solid blue;
 }

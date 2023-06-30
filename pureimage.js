@@ -37,7 +37,6 @@ function changeDefaultImage() {
       img4.classList.add("chosen-img");
       break;
   }
-
   addImageToFrame(this.src);
   convertToCanvas();
 }
