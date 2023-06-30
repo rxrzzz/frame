@@ -1,3 +1,5 @@
+import { convertToCanvas } from "./utils";
+
 let imageType = "pure image";
 let [pureImageElem, pureColorElem, gradientBackgroundElem] = [
   document.getElementsByClassName("pure-image")[0],
@@ -5,14 +7,13 @@ let [pureImageElem, pureColorElem, gradientBackgroundElem] = [
   document.getElementsByClassName("gradient-bg")[0],
 ];
 
-function changeImageType() {
+function changeDefaultImageType() {
   switch (this.textContent) {
     case "Image":
       imageType = "pure image";
       this.classList.add("chosen");
       pureColorElem.classList.remove("chosen");
       gradientBackgroundElem.classList.remove("chosen");
-
       break;
     case "Pure Color":
       imageType = "pure color";
@@ -27,9 +28,10 @@ function changeImageType() {
       pureImageElem.classList.remove("chosen");
       break;
   }
+  convertToCanvas(downloadLink);
 }
 
-pureImageElem.addEventListener("click", changeImageType);
-pureColorElem.addEventListener("click", changeImageType);
-gradientBackgroundElem.addEventListener("click", changeImageType);
-export {imageType}
+pureImageElem.addEventListener("click", changeDefaultImageType);
+pureColorElem.addEventListener("click", changeDefaultImageType);
+gradientBackgroundElem.addEventListener("click", changeDefaultImageType);
+export { imageType };

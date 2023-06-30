@@ -1,10 +1,8 @@
-import html2canvas from "html2canvas";
-import { imageType } from "./imagetype";
+import { frame } from "./frame";
+import { convertToCanvas } from "./utils";
 let imageUploader = document.getElementById("img-upload");
-let imgDiv = document.getElementById("img-div");
 let textInput = document.getElementById("text-input");
 let textSubmitButton = document.getElementById("text-submit");
-let downloadLink = document.getElementById("download-link");
 let fontSelect = document.getElementById("font-select");
 let isDragging = false;
 let offset = { x: 0, y: 0 };
@@ -20,6 +18,7 @@ function drag(event) {
     this.style.left = `${event.clientX - offset.x}px`;
     this.style.top = `${event.clientY - offset.y}px`;
   }
+  convertToCanvas();
 }
 
 function stopDragging() {
@@ -34,15 +33,8 @@ function uploadImage() {
   image.style.width = "1080px";
   image.style.height = "1080px";
   image.style.objectFit = "cover";
-  imgDiv.innerHTML = "";
-  imgDiv.append(image);
-}
-
-function convertToCanvas() {
-  html2canvas(imgDiv, { useCORS: true }).then((canvas) => {
-    let image = canvas.toDataURL("image/png");
-    downloadLink.setAttribute("href", image);
-  });
+  frame.innerHTML = "";
+  frame.append(image);
 }
 
 function addTextToImg() {
@@ -60,7 +52,7 @@ function addTextToImg() {
     text.addEventListener("mousedown", startDragging);
     text.addEventListener("mousemove", drag);
     text.addEventListener("mouseup", stopDragging);
-    imgDiv.insertAdjacentElement("beforeend", text);
+    frame.insertAdjacentElement("beforeend", text);
   }
   convertToCanvas();
 }

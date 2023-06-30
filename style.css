@@ -4,7 +4,7 @@ body {
   background-color: #09090b;
   color: white;
   font-family: "General Sans";
-  font-size: 16px;
+  font-size: 10px;
 }
 .container {
   position: relative;
@@ -66,10 +66,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  outline: 0.1rem solid white;
   cursor: pointer;
 }
+.bottom {
+  display: flex;
+}
+.chosen {
+  outline: 0.5rem solid blue;
+}
 
-.chosen{
-  border: 2px solid blue;
+.img-select-div {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-select-div img {
+  max-width: 100%;
+  width: 250px;
+  margin-block-start: 1rem;
+}
+
+.chosen-img{
+  outline: .3rem solid blue;
 }
