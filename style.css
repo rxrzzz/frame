@@ -1,6 +1,48 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@500,300&f[]=cabinet-grotesk@500,300&f[]=chillax@500,300&f[]=gambarino@400&f[]=boska@500,400&f[]=aktura@400&f[]=pramukh-rounded@400,300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  font-family: 'Satoshi', sans-serif;
+}
+.main-content {
+  padding-top: 8rem;
+  max-width: 80%;
+  font-size: 2rem;
+  display: flex;
+  margin: auto;
+  align-items: center;
+
+}
+
+.frame {
+  width: 45%;
+  border: 1px solid black;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background-image: url("./public/assets/1.jpg");
+  background-size: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.frame-settings {
+  width: 45%;
+  border: 1px solid black;
+}
+
+.imgtype-div {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 70%;
+}
+/* body {
   background-color: #09090b;
   color: white;
   font-family: "General Sans";
@@ -10,9 +52,12 @@ body {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  max-width: 1080px;
+  min-width: 800px;
+  min-height: 800px;
+  background-image: url('./public/assets/1.jpg');
+  background-size: cover;
+  aspect-ratio: 1 / 1;
   width: 95%;
-  max-height: 1080px;
 }
 
 .intro {
@@ -41,9 +86,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-/* option {
+ option {
   font-family: attr(data-font font), sans-serif;
-} */
+} 
 
 .text-container {
   position: absolute;
@@ -96,4 +141,4 @@ body {
 
 .chosen-img {
   outline: 0.3rem solid blue;
-}
+} */
