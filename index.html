@@ -12,46 +12,62 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div>
-      <input type="file" accept="image/*" id="img-upload" />
-      <div id="img-div" class="container"></div>
-      <div id="content">
-        <input type="text" id="text-input" />
-        <button id="text-submit">Add Text</button>
-        <a href="" id="download-link" download>Download Image</a>
+    <main>
+      <div class="top">
+        <div class="intro">
+          <h1 class="title">Frame</h1>
+          <h2>Customize text on images and share on Instagram!</h2>
+        </div>
+        <div class="imgtype-div">
+          <div class="pure-image">Image</div>
+          <div class="color-bg">Pure Color</div>
+          <div class="gradient-bg">Gradient Background</div>
+        </div>
       </div>
-      <select id="font-select">
-        <option
-          value="General Sans"
-          style="font-family: 'General Sans', sans-serif"
-        >
-          General Sans
-        </option>
-        <option
-          value="Cabinet Grotesk"
-          style="font-family: 'Cabinet Grotesk', sans-serif"
-        >
-          Cabinet Grotesk
-        </option>
-        <option value="Chillax" style="font-family: 'Chillax', sans-serif">
-          Chillax
-        </option>
-        <option value="Gambarino" style="font-family: 'Gambarino', serif">
-          Gambarino
-        </option>
-        <option value="Boska" style="font-family: 'Boska', serif">Boska</option>
-        <option value="Aktura" style="font-family: 'Aktura', serif">
-          Aktura
-        </option>
-        <option
-          value="Pramukh Rounded"
-          style="font-family: 'Pramukh Rounded', sans-serif"
-        >
-          Pramukh Rounded
-        </option>
-        <!-- Add more font options as needed -->
-      </select>
-    </div>
+      <div>
+        <input type="file" accept="image/*" id="img-upload" />
+        <div id="img-div" class="container"></div>
+        <div id="content">
+          <input type="text" id="text-input" />
+          <button id="text-submit">Add Text</button>
+          <a href="" id="download-link" download>Download Image</a>
+        </div>
+        <select id="font-select">
+          <option
+            value="General Sans"
+            style="font-family: 'General Sans', sans-serif"
+          >
+            General Sans
+          </option>
+          <option
+            value="Cabinet Grotesk"
+            style="font-family: 'Cabinet Grotesk', sans-serif"
+          >
+            Cabinet Grotesk
+          </option>
+          <option value="Chillax" style="font-family: 'Chillax', sans-serif">
+            Chillax
+          </option>
+          <option value="Gambarino" style="font-family: 'Gambarino', serif">
+            Gambarino
+          </option>
+          <option value="Boska" style="font-family: 'Boska', serif">
+            Boska
+          </option>
+          <option value="Aktura" style="font-family: 'Aktura', serif">
+            Aktura
+          </option>
+          <option
+            value="Pramukh Rounded"
+            style="font-family: 'Pramukh Rounded', sans-serif"
+          >
+            Pramukh Rounded
+          </option>
+          <!-- Add more font options as needed -->
+        </select>
+      </div>
+    </main>
+    <script src="/imagetype.js" type="module"></script>
     <script src="/main.js" type="module"></script>
   </body>
 </html>
