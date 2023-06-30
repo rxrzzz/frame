@@ -50,8 +50,11 @@ function addTextToImg() {
 
     text.classList.add("text-on-img");
     text.addEventListener("mousedown", startDragging);
+    text.addEventListener("touchstart", startDragging);
     text.addEventListener("mousemove", drag);
+    text.addEventListener("touchmove", drag);
     text.addEventListener("mouseup", stopDragging);
+    text.addEventListener("touchend", stopDragging);
     frame.insertAdjacentElement("beforeend", text);
   }
   convertToCanvas();

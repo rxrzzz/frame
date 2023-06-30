@@ -28,7 +28,7 @@ function changeDefaultImageType() {
       pureImageElem.classList.remove("chosen");
       break;
   }
-  convertToCanvas(downloadLink);
+  convertToCanvas();
 }
 
 pureImageElem.addEventListener("click", changeDefaultImageType);
