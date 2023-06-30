@@ -9,20 +9,10 @@ function convertToCanvas() {
 }
 
 function addImageToFrame(src) {
-  let image = new Image();
-  image.src = src;
-
-  image.style.width = "100%";
-  image.style.height = "100%";
-  image.style.objectFit = "cover";
-  if (frame.firstElementChild) {
-    if (frame.firstElementChild.tagName.toLowerCase() === "img") {
-      frame.firstElementChild.src = src;
-    }
-  } else {
-    frame.innerHTML = "";
-    frame.append(image);
-  }
+  frame.style.height = "800px";
+  frame.style.width = "800px";
+  frame.style.backgroundImage = `url("${src}")`;
+  frame.style.backgroundSize = "cover";
 }
 
 export { addImageToFrame, convertToCanvas };
