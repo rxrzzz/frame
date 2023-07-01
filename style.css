@@ -1,4 +1,9 @@
 @import url("https://api.fontshare.com/v2/css?f[]=general-sans@500,300&f[]=cabinet-grotesk@500,300&f[]=chillax@500,300&f[]=gambarino@400&f[]=boska@500,400&f[]=aktura@400&f[]=pramukh-rounded@400,300&display=swap");
+
+:root {
+  --primary-color: black;
+  --text-color: white;
+}
 * {
   margin: 0;
   padding: 0;
@@ -6,42 +11,143 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   font-size: 10px;
-  font-family: 'Satoshi', sans-serif;
+  font-family: "Satoshi", sans-serif;
+  position: relative;
 }
 .main-content {
   padding-top: 8rem;
-  max-width: 80%;
+
+  max-width: 1400px;
+  flex-wrap: wrap;
+  margin-block: 12rem;
   font-size: 2rem;
   display: flex;
-  margin: auto;
+  margin-inline: auto;
+  justify-content: space-evenly;
   align-items: center;
-
 }
-
-.frame {
+.frame-parent {
   width: 45%;
-  border: 1px solid black;
+}
+.frame {
   position: relative;
-  display: inline-block;
+  width: 100%;
   overflow: hidden;
-  background-image: url("./public/assets/1.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("./public/assets/1.jpg");
   aspect-ratio: 1 / 1;
 }
 
 .frame-settings {
   width: 45%;
-  border: 1px solid black;
 }
 
+.frame-parent,
+.frame-settings {
+  margin-bottom: 8rem;
+}
 .imgtype-div {
   display: flex;
-  justify-content: space-evenly;
-  max-width: 70%;
+  justify-content: space-between;
+  /* max-width: 70%; */
 }
+
+.imgtype-div div {
+  outline: 1px solid white;
+  padding: 1em;
+  width: 30%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chosen {
+  border: 3px solid blue;
+}
+
+.picture-settings {
+  background-color: var(--primary-color);
+  padding: 2rem;
+  max-width: 650px;
+  width: 95%;
+  border: 1px solid white;
+  color: white;
+  font-size: 2rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-select-div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.img-select-div img {
+  max-width: 45%;
+  margin-block: 2rem;
+  object-fit: cover;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.chosen-img {
+  outline: 5px solid white;
+}
+
+.link-img {
+  display: flex;
+  flex-direction: column;
+}
+.link-img input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: "Satoshi", sans-serif;
+  margin-block: 0.6em;
+}
+
+.link-img button {
+  opacity: 1;
+  transition: opacity 0.3s;
+  background-color: white;
+  font-size: 1.5rem;
+  font-family: "Satoshi";
+  color: black;
+  border: none;
+}
+
+.link-img button:hover {
+  opacity: 0.8;
+}
+
+.upload-img {
+  display: flex;
+}
+
+.img-upload-label {
+  width: 100%;
+  border: 1px dotted white;
+  text-align: center;
+  padding: 4rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .frame-parent,
+  .frame-settings {
+    width: 100%;
+  }
+}
+
 /* body {
   background-color: #09090b;
   color: white;

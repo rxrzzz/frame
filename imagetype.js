@@ -15,14 +15,14 @@ function changeDefaultImageType() {
       pureColorElem.classList.remove("chosen");
       gradientBackgroundElem.classList.remove("chosen");
       break;
-    case "Pure Color":
+    case "Color":
       imageType = "pure color";
       this.classList.add("chosen");
       pureImageElem.classList.remove("chosen");
       gradientBackgroundElem.classList.remove("chosen");
       break;
-    case "Gradient Background":
-      imageType = "gradient background";
+    case "Gradient":
+      imageType = "gradient";
       this.classList.add("chosen");
       pureColorElem.classList.remove("chosen");
       pureImageElem.classList.remove("chosen");

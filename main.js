@@ -1,5 +1,5 @@
 import { frame } from "./frame";
-import { convertToCanvas } from "./utils";
+import { addImageToFrame, convertToCanvas } from "./utils";
 let imageUploader = document.getElementById("img-upload");
 let textInput = document.getElementById("text-input");
 let textSubmitButton = document.getElementById("text-submit");
@@ -27,11 +27,7 @@ function stopDragging() {
 function uploadImage() {
   const imgFile = imageUploader.files[0];
   const imgURL = URL.createObjectURL(imgFile);
-  let image = document.createElement("img");
-  image.src = imgURL;
-  image.style.objectFit = "cover";
-  frame.innerHTML = "";
-  frame.append(image);
+  addImageToFrame(imgURL)
 }
 
 function addTextToImg() {
@@ -56,5 +52,5 @@ function addTextToImg() {
   }
   convertToCanvas();
 }
-imageUploader.addEventListener("change", uploadImage);
+imageUploader.addEventListener('change', uploadImage)
 textSubmitButton.addEventListener("click", addTextToImg);

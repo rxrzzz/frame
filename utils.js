@@ -9,13 +9,10 @@ function convertToCanvas() {
 }
 
 function addImageToFrame(src) {
-  frame.style.minHeight = "800px";
-  frame.style.minWidth = "800px";
-  frame.style.width = "95%";
-  frame.style.height = "95%";
   frame.style.backgroundImage = `url("${src}")`;
-  frame.style.backgroundSize = "cover";
   frame.style.backgroundColor = null;
+  frame.style.backgroundSize = 'cover'
+  frame.style.aspectRatio = "1/1";
 }
 
 export { addImageToFrame, convertToCanvas };
