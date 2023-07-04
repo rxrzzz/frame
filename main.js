@@ -1,33 +1,47 @@
+import interact from "interactjs";
 import { frame } from "./frame";
 import { addImageToFrame, convertToCanvas } from "./utils";
 let imageUploader = document.getElementById("img-upload");
 let textInput = document.getElementById("text-input");
 let textSubmitButton = document.getElementById("text-submit");
 let fontSelect = document.getElementById("font-select");
-let isDragging = false;
 let offset = { x: 0, y: 0 };
 
-function startDragging(event) {
-  isDragging = true;
-  offset.x = event.clientX - this.offsetLeft;
-  offset.y = event.clientY - this.offsetTop;
-}
+// interact(".text-on-img").draggable({
+//   listeners: {
+//     move(event) {
+//       offset.x += event.dx;
+//       offset.y += event.dy;
 
-function drag(event) {
-  if (isDragging) {
-    this.style.left = `${event.clientX - offset.x}px`;
-    this.style.top = `${event.clientY - offset.y}px`;
-  }
-  convertToCanvas();
-}
+//       event.target.style.transform = `translate(${offset.x}px, ${offset.y}px)`;
+//     },
+//   },
+// });
 
-function stopDragging() {
-  isDragging = false;
-}
+interact(".text-on-img").resizable({
+  edges: { top: true, left: true, bottom: true, right: true },
+  listeners: {
+    move: function (event) {
+      
+      let { x, y } = event.target.dataset;
+      const draggableTransform = `translate(${x}px, ${y}px)`;
+      x = (parseFloat(x) || 0) + event.deltaRect.left;
+      y = (parseFloat(y) || 0) + event.deltaRect.top;
+
+      Object.assign(event.target.style, {
+        width: `${event.rect.width}px`,
+        height: `${event.rect.height}px`,
+        transform: `${draggableTransform} ${event.transform}`,
+      });
+
+      Object.assign(event.target.dataset, { x, y });
+    },
+  },
+});
 function uploadImage() {
   const imgFile = imageUploader.files[0];
   const imgURL = URL.createObjectURL(imgFile);
-  addImageToFrame(imgURL)
+  addImageToFrame(imgURL);
 }
 
 function addTextToImg() {
@@ -36,21 +50,12 @@ function addTextToImg() {
     text.textContent = textInput.value;
     text.style.position = "absolute";
     text.contentEditable = "true";
-    text.setAttribute("draggable", true);
     text.style.fontFamily = `'${fontSelect.value}', sans-serif`;
-    text.style.top = "2px";
-    text.style.left = "2px";
-
     text.classList.add("text-on-img");
-    text.addEventListener("mousedown", startDragging);
-    text.addEventListener("touchstart", startDragging);
-    text.addEventListener("mousemove", drag);
-    text.addEventListener("touchmove", drag);
-    text.addEventListener("mouseup", stopDragging);
-    text.addEventListener("touchend", stopDragging);
     frame.insertAdjacentElement("beforeend", text);
   }
   convertToCanvas();
 }
-imageUploader.addEventListener('change', uploadImage)
+
+imageUploader.addEventListener("change", uploadImage);
 textSubmitButton.addEventListener("click", addTextToImg);

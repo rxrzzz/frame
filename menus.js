@@ -12,5 +12,3 @@ pictureSettingsButton.addEventListener("click", () => {
 closePictureSettingsButton.addEventListener("click", () => {
   pictureSettingsDialog.close();
 });
-
-console.log(pictureSettingsButton, pictureSettingsDialog);

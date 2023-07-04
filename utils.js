@@ -11,8 +11,9 @@ function convertToCanvas() {
 function addImageToFrame(src) {
   frame.style.backgroundImage = `url("${src}")`;
   frame.style.backgroundColor = null;
-  frame.style.backgroundSize = 'cover'
+  frame.style.backgroundSize = "cover";
   frame.style.aspectRatio = "1/1";
+  convertToCanvas();
 }
 
 export { addImageToFrame, convertToCanvas };

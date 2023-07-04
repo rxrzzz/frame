@@ -141,6 +141,20 @@ body {
   margin-top: 1rem;
 }
 
+.text-on-img {
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  color: white;
+  touch-action: none;
+  resize: none;
+}
+.text-on-img:focus {
+  outline: 1px solid white;
+  border: none;
+  /* cursor: text; */
+}
+
 @media screen and (max-width: 600px) {
   .frame-parent,
   .frame-settings {
