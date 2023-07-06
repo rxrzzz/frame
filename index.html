@@ -15,80 +15,30 @@
   <body>
     <main>
       <div class="main-content">
-        <div class="frame-parent">
-          <div class="frame"></div>
-          <select id="font-select">
-            <option
-              value="General Sans"
-              style="font-family: 'General Sans', sans-serif"
-            >
-              General Sans
-            </option>
-            <option
-              value="Cabinet Grotesk"
-              style="font-family: 'Cabinet Grotesk', sans-serif"
-            >
-              Cabinet Grotesk
-            </option>
-            <option value="Chillax" style="font-family: 'Chillax', sans-serif">
-              Chillax
-            </option>
-            <option value="Gambarino" style="font-family: 'Gambarino', serif">
-              Gambarino
-            </option>
-            <option value="Boska" style="font-family: 'Boska', serif">
-              Boska
-            </option>
-            <option value="Aktura" style="font-family: 'Aktura', serif">
-              Aktura
-            </option>
-            <option
-              value="Pramukh Rounded"
-              style="font-family: 'Pramukh Rounded', sans-serif"
-            >
-              Pramukh Rounded
-            </option>
-          </select>
-          <input type="text" id="text-input" />
-          <button id="text-submit">Add Text</button>
-          <a href="" id="download-link" download>Download Image</a>
+        <h1 class="title">Frame</h1>
+        <div class="frame"></div>
+      </div>
+      <div class="dock-mobile">
+        
+      </div>
+      <div class="dock">
+        <button>Image Settings</button>
+        <button>Aspect Ratio</button>
+        <button>Gradient Settings</button>
+        <button>Text Settings</button><button>Blah</button>
+      </div>
+      <div class="imgtype-div">
+        <div class="pure-image">
+          <p>Image</p>
+          <button></button>
         </div>
-        <div class="frame-settings">
-          <div class="imgtype-div">
-            <div class="pure-image">Image</div>
-            <div class="color-bg">Color</div>
-            <div class="gradient-bg">Gradient</div>
-          </div>
-          <div class="gradient-settings">
-            <input type="color" name="" class="gradient-1" disabled />
-            <input type="color" name="" class="gradient-2" disabled />
-          </div>
-          <div>
-            <button class="picture-settings-btn">Picture Settings</button>
-            <dialog class="picture-settings">
-              <div>
-                <button class="picture-settings-close">Close</button>
-                <p>Choose default image:</p>
-              </div>
-              <div class="img-select-div">
-                <img src="/assets/1.jpg" alt="" id="img-1" class="img-1" />
-                <img src="/assets/2.jpg" alt="" id="img-2" class="img-2" />
-                <img src="/assets/3.jpg" alt="" id="img-3" class="img-3" />
-                <img src="/assets/4.jpg" alt="" id="img-4" class="img-4" />
-              </div>
-              <div class="upload-img">
-                <label for="img-upload" class="img-upload-label"
-                  >Choose An Image</label
-                >
-                <input type="file" accept="image/*" id="img-upload" hidden />
-              </div>
-              <div class="link-img">
-                <p>Or add link to image:</p>
-                <input type="text" />
-                <button class="link-img-button">Add</button>
-              </div>
-            </dialog>
-          </div>
+        <div class="gradient-bg">
+          <p>Gradient</p>
+          <button></button>
+        </div>
+        <div class="color-bg">
+          <p>Color</p>
+          <button></button>
         </div>
       </div>
     </main>

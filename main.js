@@ -18,26 +18,75 @@ let offset = { x: 0, y: 0 };
 //   },
 // });
 
-interact(".text-on-img").resizable({
-  edges: { top: true, left: true, bottom: true, right: true },
-  listeners: {
-    move: function (event) {
-      
-      let { x, y } = event.target.dataset;
-      const draggableTransform = `translate(${x}px, ${y}px)`;
-      x = (parseFloat(x) || 0) + event.deltaRect.left;
-      y = (parseFloat(y) || 0) + event.deltaRect.top;
+interact(".text-on-img")
+  .resizable({
+    //this makes it possible to resize the element from all corners.
+    edges: { left: true, right: true, bottom: true, top: true },
 
-      Object.assign(event.target.style, {
-        width: `${event.rect.width}px`,
-        height: `${event.rect.height}px`,
-        transform: `${draggableTransform} ${event.transform}`,
-      });
+    listeners: {
+      move(event) {
+        //get the target element and then get it's x and y coordinates from the data-
+        //attribute. it's returned as
+        let target = event.target;
+        let x = parseFloat(target.getAttribute("data-x")) || 0;
+        let y = parseFloat(target.getAttribute("data-y")) || 0;
+        let initialWidth = target.style.width;
+        target.style.width = event.rect.width + "px";
+        target.style.height = event.rect.height + "px";
 
-      Object.assign(event.target.dataset, { x, y });
+        // translate when resizing from top or left edges
+        x += event.deltaRect.left;
+        y += event.deltaRect.top;
+
+        target.style.transform = "translate(" + x + "px," + y + "px)";
+
+        target.setAttribute("data-x", x);
+        target.setAttribute("data-y", y);
+        // target.textContent =
+        //   Math.round(event.rect.width) +
+        //   "\u00D7" +
+        //   Math.round(event.rect.height);
+      },
     },
-  },
-});
+    modifiers: [
+      // keep the edges inside the parent
+      interact.modifiers.restrictEdges({
+        outer: "parent",
+      }),
+
+      // minimum size
+      interact.modifiers.restrictSize({
+        min: { width: 100 },
+      }),
+    ],
+
+    inertia: true,
+  })
+  .draggable({
+    listeners: { move: dragMoveListener },
+    inertia: true,
+    modifiers: [
+      interact.modifiers.restrictRect({
+        restriction: "parent",
+        endOnly: true,
+      }),
+    ],
+  });
+
+function dragMoveListener(event) {
+  let target = event.target;
+  // keep the dragged position in the data-x/data-y attributes
+  let x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+  let y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+
+  // translate the element
+  target.style.transform = "translate(" + x + "px, " + y + "px)";
+
+  // update the posiion attributes
+  target.setAttribute("data-x", x);
+  target.setAttribute("data-y", y);
+}
+
 function uploadImage() {
   const imgFile = imageUploader.files[0];
   const imgURL = URL.createObjectURL(imgFile);
